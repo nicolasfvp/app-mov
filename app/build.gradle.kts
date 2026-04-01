@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.gamevault"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.gamevault"
@@ -53,8 +51,9 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation("androidx.navigation:navigation-compose:2.8.0")
     implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.material3)
-    implementation(libs.ads.mobile.sdk)
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
