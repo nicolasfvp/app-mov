@@ -1,15 +1,15 @@
-package com.example.gamevault.navigation
+package net.gamevault.app.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.gamevault.viewmodel.GameViewModel
-import com.example.gamevault.ui.DetailScreen
-import com.example.gamevault.ui.HomeScreen
-import com.example.gamevault.ui.LibraryScreen
-import com.example.gamevault.ui.SummaryScreen
+import net.gamevault.app.viewmodel.GameViewModel
+import net.gamevault.app.ui.DetailScreen
+import net.gamevault.app.ui.HomeScreen
+import net.gamevault.app.ui.LibraryScreen
+import net.gamevault.app.ui.SummaryScreen
 
 @Composable
 fun GameNavHost(navController: NavHostController, viewModel: GameViewModel, modifier: Modifier = Modifier) {

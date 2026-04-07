@@ -1,4 +1,4 @@
-package com.example.gamevault
+package net.gamevault.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,13 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import com.example.gamevault.navigation.GameNavHost
-import com.example.gamevault.ui.theme.GameVaultTheme
-import com.example.gamevault.viewmodel.GameViewModel
+import net.gamevault.app.navigation.GameNavHost
+import net.gamevault.app.ui.theme.GameVaultTheme
+import net.gamevault.app.viewmodel.GameViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,7 +1,7 @@
-package com.example.gamevault.viewmodel
+package net.gamevault.app.viewmodel
 
-import com.example.gamevault.model.Game
-import com.example.gamevault.model.GameUiState
+import net.gamevault.app.model.Game
+import net.gamevault.app.model.GameUiState
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

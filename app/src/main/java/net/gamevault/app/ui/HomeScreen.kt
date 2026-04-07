@@ -1,4 +1,4 @@
-package com.example.gamevault.ui
+package net.gamevault.app.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

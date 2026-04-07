@@ -1,6 +1,5 @@
-package com.example.gamevault.ui.theme
+package net.gamevault.app.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package com.example.gamevault
+package net.gamevault.app
 
 import org.junit.Test
 

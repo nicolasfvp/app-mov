@@ -1,4 +1,4 @@
-package com.example.gamevault.ui
+package net.gamevault.app.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 // SUBSTITUA PELOS CAMINHOS REAIS DO SEU PROJETO SE NECESSÁRIO
-import com.example.gamevault.model.GameUiState
-import com.example.gamevault.viewmodel.GameViewModel
+import net.gamevault.app.model.GameUiState
+import net.gamevault.app.viewmodel.GameViewModel
 
 @Composable
 fun DetailScreen(
@@ -24,7 +24,6 @@ fun DetailScreen(
     // R6: Estado imutável coletado do ViewModel
     val uiState: GameUiState by viewModel.uiState.collectAsState()
 
-    // Busca o jogo. Usamos 'currentGame' para evitar erro de ambiguidade com 'it'
     val game = uiState.games.find { currentGame -> currentGame.id == gameId }
 
     if (game != null) {

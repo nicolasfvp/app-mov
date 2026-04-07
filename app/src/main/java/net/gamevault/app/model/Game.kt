@@ -1,4 +1,4 @@
-package com.example.gamevault.model
+package net.gamevault.app.model
 
 data class Game(
     val id: Int,

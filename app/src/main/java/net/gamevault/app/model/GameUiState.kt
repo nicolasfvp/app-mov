@@ -1,4 +1,4 @@
-package com.example.gamevault.model
+package net.gamevault.app.model
 
 data class GameUiState(
     val games: List<Game> = emptyList(),

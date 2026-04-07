@@ -1,4 +1,4 @@
-package com.example.gamevault.ui.theme
+package net.gamevault.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

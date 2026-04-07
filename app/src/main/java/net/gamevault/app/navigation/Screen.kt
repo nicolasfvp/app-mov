@@ -1,4 +1,4 @@
-package com.example.gamevault.navigation
+package net.gamevault.app.navigation
 
 sealed class Screen(val route: String) {
     object Home : Screen("home")

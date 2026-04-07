@@ -1,4 +1,4 @@
-package com.example.gamevault.ui
+package net.gamevault.app.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,7 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.gamevault.viewmodel.GameViewModel
+import net.gamevault.app.viewmodel.GameViewModel
 
 @Composable
 fun LibraryScreen(viewModel: GameViewModel, onGameClick: (Int) -> Unit, onNavigateToSummary: () -> Unit) {

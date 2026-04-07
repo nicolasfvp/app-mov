@@ -1,4 +1,4 @@
-package com.example.gamevault.ui.theme
+package net.gamevault.app.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.gamevault.ui
+package net.gamevault.app.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,7 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.gamevault.viewmodel.GameViewModel
+import net.gamevault.app.viewmodel.GameViewModel
 
 @Composable
 fun SummaryScreen(viewModel: GameViewModel, onBack: () -> Unit) {
