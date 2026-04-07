@@ -16,12 +16,30 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import net.gamevault.app.model.GameUiState
+import net.gamevault.app.viewmodel.GameViewModel
 
 @Composable
-fun HomeScreen(onNavigateToLibrary: () -> Unit) {
+fun HomeScreen(
+    viewModel: GameViewModel,
+    onNavigateToLibrary: () -> Unit
+) {
+    val uiState: GameUiState by viewModel.uiState.collectAsState()
+    val games = uiState.games
+    val total = games.count()
+    var completedCount = 0
+    var inProgressCount = 0
+
+    games.forEach {
+        if (it.progress == 100) completedCount++ else inProgressCount++
+    }
+    val completedPercentage = if (total>0) (completedCount.toFloat()/total) * 100 else 0f
+    val inProgressPercentage = if (total>0) (inProgressCount.toFloat()/total) * 100 else 0f
     Column(
         modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -36,5 +54,8 @@ fun HomeScreen(onNavigateToLibrary: () -> Unit) {
         Button(onClick = onNavigateToLibrary) {
             Text("Ver Minha Biblioteca")
         }
+        Text("Jogos Adicionados: " + total, style = MaterialTheme.typography.headlineMedium)
+        Text("Jogos Completos: ${"%.0f".format(completedPercentage)}%", style = MaterialTheme.typography.headlineMedium)
+        Text("Jogos EmProgresso: ${"%.0f".format(inProgressPercentage)}%", style = MaterialTheme.typography.headlineMedium)
     }
 }

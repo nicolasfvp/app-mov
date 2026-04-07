@@ -19,7 +19,10 @@ fun GameNavHost(navController: NavHostController, viewModel: GameViewModel, modi
         modifier = modifier
     ) {
         composable(Screen.Home.route) {
-            HomeScreen(onNavigateToLibrary = { navController.navigate(Screen.Library.route) })
+            HomeScreen(
+                viewModel = viewModel,
+                onNavigateToLibrary = { navController.navigate(Screen.Library.route) }
+            )
         }
         composable(Screen.Library.route) {
             LibraryScreen(
