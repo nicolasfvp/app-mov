@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -24,7 +24,7 @@ fun StarRating(
             Icon(
                 imageVector = Icons.Filled.Star,
                 contentDescription = "Star $i",
-                tint = if (i <= rating) Color(0xFFFFD700) else Color.DarkGray,
+                tint = if (i <= rating) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
                 modifier = Modifier
                     .size(starSize)
                     .then(

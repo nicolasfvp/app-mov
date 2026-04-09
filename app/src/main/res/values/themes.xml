@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.GameVault" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.GameVault" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_gaming</item>
+        <item name="colorPrimaryVariant">@color/primary_variant_gaming</item>
+        <item name="colorOnPrimary">@color/on_primary_gaming</item>
+        <item name="colorSecondary">@color/secondary_gaming</item>
+        <item name="colorSecondaryVariant">@color/secondary_gaming</item>
+        <item name="colorOnSecondary">@color/on_secondary_gaming</item>
+        <item name="android:windowBackground">@color/background_gaming</item>
+        <item name="colorSurface">@color/surface_gaming</item>
+        <item name="colorOnSurface">@color/on_surface_gaming</item>
+        <item name="android:textColorPrimary">@color/on_background_gaming</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
 </resources>

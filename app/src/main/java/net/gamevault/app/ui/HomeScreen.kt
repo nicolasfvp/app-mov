@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SportsEsports
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -38,24 +39,63 @@ fun HomeScreen(
     games.forEach {
         if (it.progress == 100) completedCount++ else inProgressCount++
     }
-    val completedPercentage = if (total>0) (completedCount.toFloat()/total) * 100 else 0f
-    val inProgressPercentage = if (total>0) (inProgressCount.toFloat()/total) * 100 else 0f
+    val completedPercentage = if (total > 0) (completedCount.toFloat() / total) * 100 else 0f
+    val inProgressPercentage = if (total > 0) (inProgressCount.toFloat() / total) * 100 else 0f
+    
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Icon(Icons.Default.SportsEsports, contentDescription = null, modifier = Modifier.size(100.dp))
+        Icon(
+            Icons.Default.SportsEsports, 
+            contentDescription = null, 
+            modifier = Modifier.size(100.dp),
+            tint = MaterialTheme.colorScheme.primary
+        )
         Spacer(Modifier.height(16.dp))
-        Text("Bem-vindo ao GameVault", style = MaterialTheme.typography.headlineMedium)
-        Card(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
-            Text("Organize sua coleção e acompanhe seu progresso.", Modifier.padding(16.dp))
+        Text(
+            "Bem-vindo ao GameVault", 
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Card(
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+                .fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            )
+        ) {
+            Text(
+                "Organize sua coleção e acompanhe seu progresso.", 
+                Modifier.padding(16.dp),
+                color = MaterialTheme.colorScheme.onSurface
+            )
         }
-        Button(onClick = onNavigateToLibrary) {
+        Button(
+            onClick = onNavigateToLibrary,
+            modifier = Modifier.padding(bottom = 24.dp)
+        ) {
             Text("Ver Minha Biblioteca")
         }
-        Text("Jogos Adicionados: " + total, style = MaterialTheme.typography.headlineMedium)
-        Text("Jogos Completos: ${"%.0f".format(completedPercentage)}%", style = MaterialTheme.typography.headlineMedium)
-        Text("Jogos EmProgresso: ${"%.0f".format(inProgressPercentage)}%", style = MaterialTheme.typography.headlineMedium)
+        
+        Text(
+            "Jogos Adicionados: $total", 
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.secondary
+        )
+        Text(
+            "Jogos Completos: ${"%.0f".format(completedPercentage)}%", 
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Text(
+            "Jogos Em Progresso: ${"%.0f".format(inProgressPercentage)}%", 
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onBackground
+        )
     }
 }
