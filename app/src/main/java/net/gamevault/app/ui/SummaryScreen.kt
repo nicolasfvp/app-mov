@@ -31,6 +31,7 @@ fun SummaryScreen(viewModel: GameViewModel, onBack: () -> Unit) {
             items(favorites) { game ->
                 ListItem(
                     headlineContent = { Text(game.title) },
+                    supportingContent = { StarRating(rating = game.rating) },
                     leadingContent = { Icon(Icons.Default.Star, contentDescription = null, tint = Color.Yellow) }
                 )
             }

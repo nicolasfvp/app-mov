@@ -51,7 +51,10 @@ fun LibraryScreen(viewModel: GameViewModel, onGameClick: (Int) -> Unit, onNaviga
                     Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
                         Box(modifier = Modifier.size(60.dp).background(Color.Gray)) // Simula capa
                         Spacer(Modifier.width(16.dp))
-                        Text(game.title, style = MaterialTheme.typography.titleMedium)
+                        Column {
+                            Text(game.title, style = MaterialTheme.typography.titleMedium)
+                            StarRating(rating = game.rating)
+                        }
                     }
                 }
             }

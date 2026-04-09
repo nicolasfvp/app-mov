@@ -1,5 +1,6 @@
 package net.gamevault.app.viewmodel
 
+import net.gamevault.app.model.Achievement
 import net.gamevault.app.model.Game
 import net.gamevault.app.model.GameUiState
 import androidx.lifecycle.ViewModel
@@ -15,9 +16,49 @@ class GameViewModel : ViewModel() {
     init {
         // Mock
         _uiState.update { it.copy(games = listOf(
-            Game(1, "Elden Ring", "Explore as vastas terras de...", "https://via.placeholder.com/150", 4.9f, 80, true),
-            Game(2, "Hades", "fuja do inferno para...", "https://via.placeholder.com/150", 4.8f, 100),
-            Game(3, "Cyberpunk 2077", "Na futuristica cidade de NightCity..", "https://via.placeholder.com/150", 4.2f, 40)
+            Game(
+                id = 1,
+                title = "Elden Ring",
+                description = "Explore as vastas terras de...",
+                imageUrl = "https://via.placeholder.com/150",
+                rating = 5,
+                progress = 80,
+                isFavorite = true,
+                achievements = listOf(
+                    Achievement(1, "Elden Lord", true),
+                    Achievement(2, "Shardbearer", true),
+                    Achievement(3, "Age of Stars", false),
+                    Achievement(4, "Lord of Frenzied Flame", false)
+                )
+            ),
+            Game(
+                id = 2,
+                title = "Hades",
+                description = "Fuja do inferno para...",
+                imageUrl = "https://via.placeholder.com/150",
+                rating = 5,
+                progress = 100,
+                achievements = listOf(
+                    Achievement(1, "Escaped Underworld", true),
+                    Achievement(2, "Family Reunion", true),
+                    Achievement(3, "Master of Arms", true)
+                )
+            ),
+            Game(
+                id = 3,
+                title = "Cyberpunk 2077",
+                description = "Na futuristica cidade de NightCity..",
+                imageUrl = "https://via.placeholder.com/150",
+                rating = 4,
+                progress = 40,
+                achievements = listOf(
+                    Achievement(1, "The Fool", true),
+                    Achievement(2, "Breathtaking", false),
+                    Achievement(3, "Never Fade Away", false),
+                    Achievement(4, "The Sun", false),
+                    Achievement(5, "Temperance", false)
+                )
+            )
         )) }
     }
 
@@ -38,6 +79,35 @@ class GameViewModel : ViewModel() {
         _uiState.update { state ->
             val updatedGames = state.games.map {
                 if (it.id == gameId) it.copy(progress = newProgress) else it
+            }
+            state.copy(games = updatedGames)
+        }
+    }
+
+    fun updateGame(gameId: Int, title: String, description: String, rating: Int, progress: Int) {
+        _uiState.update { state ->
+            val updatedGames = state.games.map {
+                if (it.id == gameId) it.copy(
+                    title = title,
+                    description = description,
+                    rating = rating.coerceIn(0, 5),
+                    progress = progress.coerceIn(0, 100)
+                ) else it
+            }
+            state.copy(games = updatedGames)
+        }
+    }
+
+    fun toggleAchievement(gameId: Int, achievementId: Int) {
+        _uiState.update { state ->
+            val updatedGames = state.games.map { game ->
+                if (game.id == gameId) {
+                    val updatedAchievements = game.achievements.map { achievement ->
+                        if (achievement.id == achievementId) achievement.copy(completed = !achievement.completed)
+                        else achievement
+                    }
+                    game.copy(achievements = updatedAchievements)
+                } else game
             }
             state.copy(games = updatedGames)
         }
